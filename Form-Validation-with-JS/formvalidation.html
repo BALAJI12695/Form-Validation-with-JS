@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+
+      <!-- bootstrap -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+      <!-- Bootstrap Font Icon CSS -->
+      <link rel="stylesheet" href=
+      "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+      <!-- Awsome icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- Fonts -->
+      <link rel="stylesheet" href="./fonts/fontawesome-webfont.woff2">
+      <!-- My CSS style -->
+      <link rel="stylesheet" href="./form.css">
+    <!-- Mobile Validation with Flag -->
+      <link rel="stylesheet" href="./build/css/intlTelInput.css">
+      
+      
+      
+</head>
+<body>
+
+    <div class="container">
+     <form action="savedata.html" id="form" class="form" method="get"  onsubmit="return validate()" >
+
+        <h5>Registration Form</h5>
+
+        
+ 
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" id="fname"  placeholder="Enter Your First Name">
+            <p id="name1"></p>
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" id="lname" placeholder="Enter Your Last Name">
+            <p id="name2"></p>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Enter Your Email Id">
+            <p id="emailtext"></p>
+        </div>
+        <div class="form-group">
+            <label for="pass1">Password:</label>
+            <input type="text" name="pass1" id="pass1" placeholder="Enter Your Password">
+            <p id="passtext1"></p>
+        </div>
+        <div class="form-group">
+            <label for="pass2">Confirm Password:</label>
+            <input type="text" name="pass2" id="pass2" placeholder="Please Confirm Password">
+            <p id="passtext2"></p>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="tel"  name="mobile" id="mobile" placeholder="Enter Your Mobile Number">
+            <p id="mobiletext"></p>
+        </div>
+        <div class="form-gender">
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" id="gendermale" >Male
+            <input type="radio" name="gender" id="genderfemale" >Female
+            <input type="radio" name="gender" id="gendertrans" >Transgenders
+            <p id="gendertext"></p>
+        </div>
+        <div class="form-degree">
+        
+        <label for="Qualification">Qualification:</label>
+        <select name="degree" id="degree">
+            <option value="select">--Select--</option>
+            <option value="BA">BA</option>
+            <option value="BSC">BSC</option>
+            <option value="B.COM">B.COM</option>
+            <option value="BCA">BCA</option> 
+        </select>
+            <p id="qualifytext"></p>
+        </div>
+        
+        <div class=" form-language">
+            <label for="language">Language Known:</label>
+            <input type="checkbox" id="tamil" name="tamil" value="language">
+            <label for="tamil"> Tamil </label>
+            <input type="checkbox" id="english" name="english" value="language">
+            <label for="english"> English</label>
+            <input type="checkbox" id="french" name="french" value="language">
+            <label for="french">French </label>
+            <p id="languagetext"></p>
+        </div>
+                
+            <button type="submit" value="submit">Submit</button>
+   
+        </form>
+    
+        
+    <!-- Mobile Validation with Flag -->
+    <script src="./build/js/intlTelInput.js"></script>
+    <script>
+        var mob = document.querySelector("#mobile");
+        window.intlTelInput(mob,{});
+    
+              function validate()
+              {
+                var name = document.getElementById("fname").value;
+                var fname = true;
+                var lname = true;
+                var email = true;
+                var pass1 = document.getElementById("pass1").value;
+                var pass2 = document.getElementById("pass2").value;
+                var mobile = true;
+                var gender = true;
+                var Qualification = true;
+                var language = true;
+
+                // var phoneno = /^[0]?[6789]\d{9}$/;
+                var phoneno =/^\+[0-9]{12}$/
+                // let regex = new RegExp(/^[+]{1}(?:[0-9\-\(\)\/\.]\s?){6, 15}[0-9]{1}$/);
+
+                var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var passvalidate = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+
+                if( name=="")
+                {
+                     fname = false;
+                    document.getElementById("name1").innerHTML="Please Enter Your First Name";
+                    document.getElementById("name1").style.color="red";
+                    document.getElementById("fname").style.borderColor="red";
+                }
+
+                else
+                {
+                     fname = true;
+                    document.getElementById("fname").style.borderColor="green";
+                    document.getElementById("fname").value= name[0].toUpperCase()+name.substring(1);
+                    document.getElementById("name1").innerHTML="";
+                    
+                }
+
+                if( document.getElementById("lname").value=="")
+                {
+                     lname = false;
+                    document.getElementById("name2").innerHTML="Please Enter Your Last Name";
+                    document.getElementById("name2").style.color="red";
+                    document.getElementById("lname").style.borderColor="red";
+                }
+
+                else
+                {
+                     lname = true;
+                    document.getElementById("lname").style.borderColor="green";
+                    document.getElementById("name2").innerHTML="";
+                    
+                }
+
+                if( document.getElementById("email").value=="")
+                {
+                     email = false;
+                    document.getElementById("emailtext").innerHTML="Please Enter Valid Email ID";
+                    document.getElementById("emailtext").style.color="red";
+                    document.getElementById("email").style.borderColor="red";
+                }
+
+                else if(mail.test(document.getElementById("email").value)==false)
+                {
+                    document.getElementById("emailtext").innerHTML="Please Enter Valid Email ID";
+                    document.getElementById("emailtext").style.color="red";
+                    document.getElementById("email").style.borderColor="red";
+                    
+                }
+
+                else
+                {
+                     email = true;
+                    document.getElementById("email").style.borderColor="green";
+                    document.getElementById("emailtext").innerHTML="";
+                    
+                }
+
+                if( pass1=="")
+                {
+                    
+                    document.getElementById("passtext1").innerHTML="Please Enter Valid Password";
+                    document.getElementById("passtext1").style.color="red";
+                    document.getElementById("pass1").style.color="red";
+                    
+                }
+                else if(passvalidate.test(pass1)==false)
+                {
+                    
+                    document.getElementById("passtext1").innerHTML="Minimum 6 characters  Atleast 1 uppercase 1 lowercase 1 special character 1 numeric ";
+                    document.getElementById("passtext1").style.color="red";
+                }
+                else
+                {
+                  
+                     document.getElementById("pass1").style.borderColor="green";
+                     document.getElementById("passtext1").innerHTML="";
+                }
+                
+               
+
+                if( pass2=="")
+                {
+                    
+                    document.getElementById("passtext2").innerHTML="Please Confirm Password";
+                    document.getElementById("passtext2").style.color="red";
+                    document.getElementById("pass2").style.borderColor="red"
+                }
+                else if(pass1!=pass2)
+                {
+                    document.getElementById("passtext2").innerHTML="Password Mismatched";
+                    document.getElementById("passtext2").style.color="red"
+                    document.getElementById("pass2").style.borderColor="red"
+                }
+
+                else
+                {
+                    
+                    document.getElementById("passtext2").innerHTML="";
+                    document.getElementById("pass2").style.borderColor="green"
+
+                }
+
+            
+
+                if( document.getElementById("mobile").value=="") 
+                {
+                     mobile = false;
+                    document.getElementById("mobiletext").innerHTML="Please Enter Your Mobile Number";
+                    document.getElementById("mobiletext").style.color="red";
+                    document.getElementById("mobile").style.borderColor="red";
+                }
+                else if(phoneno.test(document.getElementById("mobile").value)==false)
+                {
+                    document.getElementById("mobiletext").innerHTML="Please Enter Valid Mobile Number";
+                    document.getElementById("mobiletext").style.color="red";
+                    document.getElementById("mobile").style.borderColor="red";
+
+                }
+
+                else
+                {
+                     mobile = true;
+                    document.getElementById("mobile").style.borderColor="green";
+                    document.getElementById("mobiletext").innerHTML="";
+                    
+                }
+
+                if( document.getElementById("gendermale").checked !=true && document.getElementById("genderfemale").checked !=true && document.getElementById("gendertrans").checked !=true)
+                {
+                     gender = false;
+                    document.getElementById("gendertext").innerHTML="Please Select Your Gender";
+                    document.getElementById("gendertext").style.color="red";
+                   
+                }
+
+                else
+                {
+                     gender = true;
+                    document.getElementById("gendertext").innerHTML="";
+                    
+                }
+
+                if(document.getElementById("degree").value=="select")
+                {
+                    Qualification = false
+                    document.getElementById("qualifytext").innerHTML = "Please Select Your Qualification";
+                    document.getElementById("qualifytext").style.color="red";
+                }
+
+                else
+                {
+                    Qualification = true
+                    document.getElementById("qualifytext").innerHTML ="";
+                }
+
+                if(document.getElementById("tamil").checked !=true && document.getElementById("english").checked !=true && document.getElementById("french").checked !=true)
+                {
+                    language = false
+                    document.getElementById("languagetext").innerHTML = "Please Select the Languages Known"
+                    document.getElementById("languagetext").style.color="red"
+                }
+
+                else
+                {
+                    language = true
+                    document.getElementById("languagetext").innerHTML = "";
+                }
+    
+
+                if( fname == false || lname == false|| email == false || mobile == false || gender == false || Qualification == false || language == false )
+                {
+                    return false
+                }
+                else
+                {
+                    return true
+                }
+
+
+              }
+              
+
+
+    
+    </script>
+
+       
+
+    </div>
+    
+    
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+function validate()
+{
+    var name= true;
+    
+    if( document.getElementById("fname").value=="")
+    {
+        name = false
+        document.getElementById("name1").innerHTML="Please Enter Your Name";
+        document.getElementById("fname").style.borderColor="red";
+        document.getElementById("name1").style.color="red";
+    }
+    else
+    {
+        name = true; 
+        document.getElementById("fname").style.borderColor="green";
+    }
+
+    if( name == false)
+    {
+        return false
+    }
+    else
+    {
+        return true
+    }
+}
+
+
+/^\d{10}$/; 
+
+var spl = /^(?=.*?[#?!@$%^&*-])$/;
+                
+var leng = /^.{8,}$/;
+
+var lc = /^(?=.*[a-z])$/;
+
+var uc = /^(?=.*[A-Z])$/;
+
+var num = /^(?=.*\d)$/;
+
+var passvalidate = /^(?=.*\d) (?=.*[a-z]) (?=.*[A-Z]) .{6,20}$/;
+
+
+
+// if(pass1.test(lc)==false)
+                // {
+                    
+                //     document.getElementById("error3").innerHTML="Password Must Contain atleast one Lowercase:";
+                //     document.getElementById("error3").style.color="red";
+                // }
+                // else
+                // {
+                //     document.getElementById("error3").innerHTML="";
+                   
+                // }
+
+                // if(spl.test(pass1)==false)
+                // {
+                //     passa = false
+                //     document.getElementById("error4").innerHTML="Password Must Contain atleast one Special Character:";
+                //     document.getElementById("error4").style.color="red";
+                // }
+                // else{
+                //     document.getElementById("error4").innerHTML="";
+                // }
+
+                // if(num.test(pass1)==false)
+                // {
+                    
+                //     document.getElementById("error5").innerHTML="Password Must Contain atleast one Numeric:";
+                //     document.getElementById("error5").style.color="red";
+                // }
+                // else{
+                //     document.getElementById("error5").innerHTML="";
+                // }
+
+                // else
+                // {
+                //     pass = true
+                //     document.getElementById("passtext1").innerHTML="";
+                //     document.getElementById("errormsg").innerHTML="";
+                //     document.getElementById("error1").innerHTML="";
+                //     document.getElementById("error2").innerHTML="";
+                //     document.getElementById("error3").innerHTML="";
+                //     document.getElementById("error4").innerHTML="";
+                //     document.getElementById("error5").innerHTML="";
+                //     document.getElementById("pass1").style.borderColor="green";
+                // }

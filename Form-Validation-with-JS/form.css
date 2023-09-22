@@ -1,0 +1,174 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body
+{
+ width: 100vw;
+ height: 100vh;
+ background-color: #90ADC6;
+ display: grid;
+ place-items: center;
+}
+
+.container
+{
+    width: 500px;
+    padding: 20px;
+    background-color: black;
+    border-radius: 5px;
+    border: solid;
+    border-color: #FAD02C;
+
+}
+
+/* form  start */
+
+.form h5
+{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+    color: gold;
+}
+
+.form
+{
+    color: #ffff;
+    padding: 10px;
+    font-size: medium;
+    
+}
+
+form label
+{
+    font-weight: bold;
+}
+
+
+
+/* form  start end */
+
+/* input starts */
+
+input:focus
+{
+   
+   background-color: blueviolet;  
+}
+
+ input
+{
+   background-color: #333652; 
+   /* caret-color: red; */
+}
+
+::placeholder
+{
+    
+    padding-left: 15px;
+    font-style: oblique;
+    color: #E9EAEC;
+    font-weight: bold;
+    
+}
+
+
+
+/* input ends */
+
+/* form group start */
+
+.form-group
+{
+    padding: 2px 0 2px 0;
+
+}
+
+.form-group label
+{
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+.form-group input
+{
+    width: 400px;
+    padding: 5px;
+    border-radius: 50px;
+    outline: none;
+    border: 2px solid;
+ 
+}
+
+
+
+/* form group end */
+
+/* form gender start */
+
+.form-gender input
+{
+    margin-left: 20px;
+}
+
+.form-gender 
+{
+    padding: 5px 0px 5px 0px;
+   
+}
+/* form gender end */
+   
+/* form degree start*/
+
+.form-degree
+{
+    padding: 5px 0 5px 0;
+}
+.form-degree label
+{
+    margin-right: 10px;
+   
+}
+
+/* form degree end*/
+
+/* form language start */
+
+.form-language input
+{
+    margin-left: 15px;
+    
+}
+/* form language ends */
+
+
+.form button
+{
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: blue;
+    border: solid 1px;
+    color: #ffff;
+    
+}
+
+select
+{
+    border-radius: 50px;
+    padding: 5px;
+    background-color: lightgreen;
+
+}
+
+
+
+
